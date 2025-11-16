@@ -1,0 +1,14 @@
+= git =
+
+== 分支管理 ==
+
+=== 拉取别人远程分支然后本地开发再推送自己的远程分支 ===
+
+假设我的远程服务器是: `origin`，然后对方的是：`upstream`。
+
+{{{bash
+git fetch upstream change_type
+git checkout -b change_type_2 upstream/change_type
+git push -u origin change_type_2
+}}}
+

@@ -1,8 +1,17 @@
+= vimwiki =
 
+[[vimwiki/vimwiki备忘|vimwiki备忘]]
 
 = 编程语言 =
 
-[[编程语言/bash|bash]]
-[[编程语言/perl|perl]]
+* [[编程语言/bash|bash]]
+* [[编程语言/perl|perl]]
+* [[编程语言/go|go]]
+* [[编程语言/c|c]]
+* [[编程语言/python|python]]
 
+
+= 常用工具 =
+
+* [[tools/git]]
 

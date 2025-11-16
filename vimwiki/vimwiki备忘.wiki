@@ -1,0 +1,36 @@
+= vimwiki备忘 =
+
+== 基本的键盘操作 ==
+
+* <Leader>ww    -- Open default wiki index file.
+* <Leader>wt    -- Open default wiki index file in a new tab.
+* <Leader>ws    -- Select and open wiki index file.
+* <Leader>wd    -- Delete wiki file you are in.
+* <Leader>wr    -- Rename wiki file you are in.
+* <Enter>       -- Follow/Create wiki link.
+* <Shift-Enter> -- Split and follow/create wiki link.
+* <Ctrl-Enter>  -- Vertical split and follow/create wiki link.
+* <Backspace>   -- Go back to parent(previous) wiki link.
+* <Tab>         -- Find next wiki link.
+* <Shift-Tab>   -- Find previous wiki link.
+
+要查看其它的按键说明，命令行运行`:h vimwiki-mappings`。
+
+
+== 常用的命令 ==
+
+* :Vimwiki2HTML          -- Convert current wiki link to HTML.
+* :VimwikiAll2HTML       -- Convert all your wiki links to HTML.
+* :help vimwiki-commands -- List all commands.
+* :help vimwiki          -- General vimwiki help docs.
+
+
+== 常用的语法速查 ==
+
+命令行运行：`:h vimwiki-syntax`。
+
+
+== 关于Tagbar的集成 ==
+
+命令行运行 `:h vimwiki-tagbar`
+
