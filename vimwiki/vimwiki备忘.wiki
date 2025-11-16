@@ -29,6 +29,40 @@
 
 命令行运行：`:h vimwiki-syntax`。
 
+=== 特殊的语法备忘 ===
+
+1. 文字图片环绕
+
+{{local:images/pic.png|说明文字|class="floatright"}}图片右边，文字左边
+可以换行，使用相对路径，便于导出后的html在别的机器上能找到图片。
+
+{{file:images/pic.png|说明文字|class="floatleft"}}图片左边，文字右边
+可以换行，使用绝对路径，导出后的html到别的机器上可能不方便找到图片。
+
+{{file:images/pic.png|说明文字}}普通的情况。
+
+上面三种情况都建议导出后的源文件和html文件都需要存在，不然不方便找到图片。
+
+2. 导出的附件说明
+
+除图片意外的其它附件请手动拷贝到`html`目录中去。
+
+比如下面这个嵌入的`svg`就需要手动拷贝到`html`目录中去。
+
+<object type="image/svg+xml" data="test.svg"></object>
+
+3. svg的原生支持。
+
+<object type="image/svg+xml" data="test.svg"></object>
+
+
+4. 导出目录中的`qq_style.css`需要手动放置。建议可以直接使用`cmd`创建一个到项目目
+    录的符号链接即可。但是验证发现创建的符号链接无法生效，原因未知。可能是因为
+    网页的`css`不能是一个链接吧。
+
+5. 导出的时候还有个问题需要特别注意下，需要去`index.wiki`所在的顶级目录去导。
+    不要在子目录去导。
+
 
 == 关于Tagbar的集成 ==
 
