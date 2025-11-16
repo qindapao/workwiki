@@ -34,3 +34,36 @@
 
 命令行运行 `:h vimwiki-tagbar`
 
+
+== 样式优化 ==
+
+1. 在`vim`的配置文件中启动样式标签。
+
+{{{vim
+let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,p,pre,span'
+}}}
+
+2. 在插件默认的`autoload`目录下的`style.css`中有一个标签需要美化。
+    `font-family`的最前面加上我们的可以支持中文的等宽字体：`sarasa mono sc`。
+
+{{{css
+pre {
+  border-left: 5px solid #dcdcdc;
+  background-color: #f5f5f5;
+  padding-left: 1em;
+  font-family: "sarasa mono sc", Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  font-size: 0.8em;
+  border-radius: 6px;
+}
+}}}
+
+3. 在`style.css`的最后可以加上下面这个，让正文也保留编辑器中的样式。
+
+{{{css
+p {
+  margin: 0 !important;
+  font-family:"sarasa mono sc" !important;
+  white-space: pre !important;
+}
+}}}
+
