@@ -1,2 +1,16 @@
 = perl =
 
+== 调试 ==
+
+=== Data::Dumper ===
+
+{{{perl
+use Data::Dumper;
+
+warn "setup_path = $setup_path\n";
+warn "ASCIIO_OBJECT_SETUP = " . Dumper($ini_files->{ASCIIO_OBJECT_SETUP}) . "\n";
+}}}
+
+用`warn`来打印，信息输出到标准错误，不会到标准输出。
+
+

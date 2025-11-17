@@ -12,5 +12,12 @@
 
 = 常用工具 =
 
-* [[tools/git]]
+* [[tools/git|git]]
+* [[tools/vim|vim]]
+
+= 新win11机器配置指南 =
+
+* [[配置/win11新机器|win11新机器]]
+
+
 

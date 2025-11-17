@@ -1,5 +1,42 @@
 = git =
 
+== 全局选项 ==
+
+* core.autoctrlf=false
+    - false 换行符不转换
+    - true 检出时转CRLF，提交时转LF
+    - input 提交时转LF，检出不变
+* core.quotepath=false
+    - true 非ASCII字符转义
+    - false 非ASCII字符不转义(设置为这个!)
+* core.ignorecase=false 
+    - false 区分大小写(推荐配置这个，避免跨平台问题)
+    - true 忽略大小写
+* core.protectntfs=false 在windows上，Git可以保护NTFS特殊文件名(如：`CON` `PRN`)。
+    - false 不启用保护
+    - true 启用保护
+* user.name 用户名
+* user.email 提交记录中显示的邮箱
+* include.path=C:/Users/xx/.git-mm/gitconfig 引入额外的配置文件，方便模块管理。
+* http.sslverify=false 禁用 `SSL` 证书验证。这样可以避免证书错误，但是安全性降低。
+* http.https://github.com.sslverify=false 和上面一样，只是针对特定网站。
+* http.https://github.com.proxy 设置访问GitHub的代理服务器(带账号密码)
+* https.https://github.com.proxy 和上面一样
+* diff.tool=gvimdiff 默认差异比较工具是`gvimdiff`。
+* difftool.prompt=false 使用差异工具时不提示确认。
+* alias.d=difftool 定义命令别名：`git d`等价于`git difftool`。
+* filter.lfs.required=true 启用Git LFS
+* filter.lfs.clean=git-lfs clean -- %f 提交时调用LFS清理过滤器。
+* filter.lfs.smudge=git-lfs smudge -- %f 检出时调用LFS替换过滤器。
+* filter.lfs.process=git-lfs filter-process 使用LFS的进程过滤机制。
+* gui.encoding=utf-8 Git GUI 使用UTF-8编码。
+* i18n.commit.encoding=utf-8 提交信息编码为 UTF-8
+* i18n.logoutputencoding=utf-8 日志输出编码为 UTF-8
+* i18n.commitencoding=utf-8 提交信息的默认编码为 UTF-8
+
+
+
+
 == 分支管理 ==
 
 === 拉取别人远程分支然后本地开发再推送自己的远程分支 ===
