@@ -193,9 +193,13 @@ git config --global --list
 
 [[https://github.com/subframe7536/maple-font|MappleMono]]
 
+`vimiomono`，这个字体已经备份到了百度网盘。
+
 * 导出的字体优选
 
 [[https://github.com/be5invis/Sarasa-Gothic|sarasa]]
+
+其实这个字体也不好看，可以尝试使用`vimiomono`。
 
 === zim ===
 
@@ -352,6 +356,20 @@ keyviz使用最新的版本，不要使用稳定版，因为稳定版没有鼠�
     "modes": "normal, command, local, remote",
     "map": "<Up>"
   }
+}}}
+
+最好设置下`WindTerm`不要自动锁屏。
+
+1. 修改软件的安装目录下的：`global/wind.config`配置文件。
+
+{{{json
+"application.lockScreenTimeout": 0
+}}}
+
+2. 同样是安装目录下的：`.wind/profiles/default.v10/user.config`文件。
+
+{{{json
+"application.masterPassword": false
 }}}
 
 

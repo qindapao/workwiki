@@ -49,3 +49,18 @@ git checkout -b change_type_2 upstream/change_type
 git push -u origin change_type_2
 }}}
 
+如果对方的分支`change_type`有新的提交，我需要先合并到我自己的本地分支来。
+
+
+{{{bash
+git fetch upstream
+git checkout change_type_2
+git merge upstream/change_type
+}}}
+
+然后在推送到自己的远程。
+
+{{{bash
+git push origin change_type_2
+}}}
+
