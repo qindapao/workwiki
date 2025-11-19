@@ -307,6 +307,7 @@ echo 'export HISTFILESIZE=20000' >>~/.bashrc
 echo 'shopt -s histappend' >>~/.bashrc
 echo 'PROMPT_COMMAND="history -a; $PROMPT_COMMAND"' >>~/.bashrc
 echo 'history -r' >>~/.bashrc
+echo 'cd /d/code/' >>~/.bashrc
 source ~/.bashrc
 }}}
 
@@ -372,6 +373,19 @@ keyviz使用最新的版本，不要使用稳定版，因为稳定版没有鼠�
 "application.masterPassword": false
 }}}
 
+快捷命令当前已经管理了起来，在新设备上需要先建立配置的映射关系。
+
+{{{cmd
+C:\Users\admin>D:
+
+D:\>cd programes\WindTerm_2.7.0\.wind\profiles\default.v10\terminal
+
+D:\programes\WindTerm_2.7.0\.wind\profiles\default.v10\terminal>mklink quickbar.config D:\code\qq_bash\config\quickbar.config
+为 quickbar.config <<===>> D:\code\qq_bash\config\quickbar.config 创建的符号链接
+
+D:\programes\WindTerm_2.7.0\.wind\profiles\default.v10\terminal>
+}}}
+
 
 === Beyond Compare ===
 
@@ -382,4 +396,15 @@ https://www.ghxi.com/beyondcompare.html
 === Qdir ===
 
 [[https://www.q-dir.com/|Qdir]]是一个多窗口的文件管理器。
+
+“选项 → 启动时窗口布局 → 使用最后视图” 来让软件自动恢复上次关闭时的窗口和文件夹
+位置，这样每次打开都会回到上次的工作状态。
+
+=== 实用浏览器插件 ===
+
+
+==== FluentRead ====
+
+在edge的[[https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home?hl=zh-CN|扩展商城]]中搜索：`FluentRead`。然后安装。
+
 
