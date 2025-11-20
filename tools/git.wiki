@@ -64,3 +64,19 @@ git merge upstream/change_type
 git push origin change_type_2
 }}}
 
+=== 显示每个分支跟踪的远程分支 ===
+
+{{{bash
+git branch -vv
+}}}
+
+这会显示每个本地分支对应的远程分支，并且显示落后/领先。
+
+
+=== 添加fork作者的远程仓库 ===
+
+{{{bash
+git remote add upstream https://github.com/nkh/P5-App-Asciio
+}}}
+
+

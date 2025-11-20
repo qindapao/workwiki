@@ -1,0 +1,6 @@
+= asciio =
+== Element boundary judgment logic ==
+
+[[element_boundary_judgment_logic|Element boundary judgment logic]]
+
+

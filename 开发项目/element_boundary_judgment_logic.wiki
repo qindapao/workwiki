@@ -1,0 +1,73 @@
+= Element boundary judgment logic =
+
+== basic idea ==
+
+{{{txt
+                                                                                  (11)
+         .---------------------------------------------------------------------------------------------------.
+         |                     .---.                                                                         |
+         |                 (3) |   |                                                                         |
+         |                     '---'     |                           _..---.._                               |
+         |                               | (4)                     .'         '.                             |
+         |                 ┏━━━━━━━━━━━━━|━━━━━━━━━━━━━━━━━━━━━━━.'             '.━━━━━━┓                    |
+         |                 ┃             |                       |     (8)       |      ┃                    |
+         |                 ┃             '-------->              '.             .'      ┃                    |
+         |                 ┃                         _..---.._     '.         .'        ┃     |              |
+         |                 ┃                       .'         '.     '--...--'          ┃     |              |
+         |                 ┃                     .'             '.                      ┃     |(9)           |
+         |                 ┃          .---.      |               |                      ┃     |              |
+         |                 ┃       (5)|   |      '.      (7)    .'                      ┃     '-------->     |
+         |                 ┃          '---'        '.         .'                        ┃                    |
+         |  |              ┃      |                  '--...--'                          ┃                    |
+         |  |              ┃      |                                                     ┃                    |
+         |  | (2)          ┃      |                                                     ┃                    |
+         |  |              ┃      | (6)                                                 ┃                    |
+         |  '-------->     ┃      '-------->                                            ┃                    |
+         |                 ┃                                                            ┃                    |
+         |                 ┃                                                            ┃                    |
+         |                 ┃                                                            ┃                    |
+         |                 ┃                                                            ┃                    |
+         |             |   ┃                                                            ┃                    |
+         |             |   ┃                                                            ┃                    |
+         |         (1) |   ┃                                                            ┃          |         |
+         |             |   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛          |         |
+         |             '-------->                                                                  |(10)     |
+         |                                                                                         |         |
+         |                                                                                         |         |
+         |                                                                                  <------'         |
+         '---------------------------------------------------------------------------------------------------'
+}}}
+
+1. The bold line frame in the above diagram is the canvas of `asciio`. There are 11 elements above, and only the parts in the bold outline are visible to the user.
+2. Take the 4 boundary extreme values of each element, which are the maximum and minimum X values of all point coordinates, and the maximum and minimum Y value of all point coordinates.
+3. We can use `zbuffer` or `strips` of the element itself to calculate.
+4. The judgment algorithm is to check whether the rectangle composed of four vertices intersects with the canvas, which includes the following situations.
+    1. The rectangle wraps the canvas, and the canvas shows the inside of the rectangle, which should obviously be drawn. For example, the large rectangle `(11)` above.
+    2. The canvas wraps the rectangle, and the rectangle is inside the canvas, which obviously should also be drawn. For example, `(5)` `(6)` `(7)` in the diagram above
+    3. The canvas intersects the rectangle, which obviously should also draw the element. For example `(4)` `(8)` in the picture above
+    4. There is another special situation where the element is not in the canvas, such as arrow elements. In this case, it may be mistakenly believed that the element intersects with the canvas, such as `(1)` in the above diagram. In this case, we also draw the element. We draw more elements, but not less.
+    5. The rectangle and the canvas do not intersect at all. In this case, there is no need to draw, such as `(10)` `(9)` `(3)` `(2)` above
+
+== Update conditions ==
+
+Whenever the element's strip changes, it is updated.
+
+== data structure ==
+
+{{{perl
+$self->{RECT_BOUNDS} = {
+    x_min => $x_min,
+    x_max => $x_max,
+    y_min => $y_min,
+    y_max => $y_max,
+};
+
+if ($self->{RECT_BOUNDS}{x_min} <= $canvas_x_max &&
+    $self->{RECT_BOUNDS}{x_max} >= $canvas_x_min &&
+    $self->{RECT_BOUNDS}{y_min} <= $canvas_y_max &&
+    $self->{RECT_BOUNDS}{y_max} >= $canvas_y_min) {
+    # The element's rectangular bounds intersect with the canvas and needs to be drawn!
+}
+}}}
+
+
