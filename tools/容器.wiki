@@ -1,0 +1,22 @@
+
+= 容器 =
+
+[[https://www.docker.com/products/docker-desktop/|windows版本]]。
+
+== 在容器中运行asciio ==
+
+{{{bash
+docker pull ghcr.io/nkh/p5-app-asciio:release
+}}}
+
+== 安装X-server服务器 ==
+
+https://vcxsrv.com/
+
+== 运行asciio ==
+
+{{{bash
+docker run -it --rm --env DISPLAY=host.docker.internal:0.0 ghcr.io/nkh/p5-app-asciio:release asciio
+}}}
+
+
