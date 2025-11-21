@@ -1,0 +1,22 @@
+= msys2 =
+
+== 系统瘦身 ==
+
+# 清除旧的缓存文件，保留最新的
+pacman -Sc
+# 清除所有的缓存文件
+pacman -Scc
+
+
+
+# 列出所有的安装包
+
+
+pacman -Q
+
+# 只看顶层的包
+pacman -Qe
+
+# 查看孤立的包
+pacman -Qdt
+

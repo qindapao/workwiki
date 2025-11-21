@@ -15,6 +15,7 @@
 * [[tools/git|git]]
 * [[tools/vim|vim]]
 * [[tools/容器|容器]]
+* [[tools/msys2|msys2]]
 
 = 新win11机器配置指南 =
 
