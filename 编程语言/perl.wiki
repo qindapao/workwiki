@@ -9,6 +9,16 @@ use Data::Dumper;
 
 warn "setup_path = $setup_path\n";
 warn "ASCIIO_OBJECT_SETUP = " . Dumper($ini_files->{ASCIIO_OBJECT_SETUP}) . "\n";
+
+print STDERR DumpTree { 
+	canvas_min_x => $canvas_min_x, 
+	canvas_max_x => $canvas_max_x, 
+	canvas_min_y => $canvas_min_y, 
+	canvas_max_y => $canvas_max_y, 
+	grid_width => $grid_width, 
+	grid_height => $grid_height, 
+	v_value => $v_value, 
+	h_value => $h_value } ; 
 }}}
 
 用`warn`来打印，信息输出到标准错误，不会到标准输出。
