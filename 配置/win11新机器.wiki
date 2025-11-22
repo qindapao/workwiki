@@ -300,6 +300,7 @@ echo 'export PATH=${PATH}:/c/Users/admin/go' >> ~/.bashrc
 echo 'export PATH=${PATH}:/c/Users/admin/go/bin' >> ~/.bashrc
 echo 'export PATH=${PATH}:/d/programes/vim' >> ~/.bashrc
 echo 'export PATH=${PATH}:/d/programes/vim/glob/bin' >> ~/.bashrc
+echo 'export PATH=${PATH}:/d/code/qq_bash/src' >> ~/.bashrc
 echo 'export PS1='\''\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\]\$'\''' >> ~/.bashrc
 echo 'export HISTFILE=~/.bash_history' >>~/.bashrc
 echo 'export HISTSIZE=10000' >>~/.bashrc
