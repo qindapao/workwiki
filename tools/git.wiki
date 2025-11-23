@@ -64,6 +64,32 @@ git merge upstream/change_type
 git push origin change_type_2
 }}}
 
+如果要通过别人的远程分支更新自己的本地分支。
+
+{{{bash
+# 查看对方的远程分支是否在你的远程中
+git remote -v
+# 如果不在先添加
+git remote add upstream <upstream仓库地址>
+# 更新远程状态
+git fetch upstream
+# 切换到特性分支
+git checkout xx
+# 合并对方的提交(用于本地没有提交的情况)
+git merge upstream/xx
+# 让自己的提交在对方的提交之后
+git rebase upstream/xx
+
+
+# 如果有冲突，编辑冲突文件后
+git add <冲突文件>
+git rebase --continue   # 如果是 rebase
+# 或者
+git commit              # 如果是 merge
+# 最后推送到自己的远程
+git push origin xx
+}}}
+
 === 显示每个分支跟踪的远程分支 ===
 
 {{{bash
@@ -79,4 +105,34 @@ git branch -vv
 git remote add upstream https://github.com/nkh/P5-App-Asciio
 }}}
 
+== 提交管理 ==
 
+=== 压缩提交 ===
+
+举例: 压缩最后的两个提交。
+
+1. 启动交互式 rebase
+
+{{{bash
+git rebase -i HEAD~2
+}}}
+
+2. 编辑提交列表
+
+{{{bash
+pick abc123 最近的提交信息
+pick def456 更早的提交信息
+}}}
+
+把第二个提交前的 pick 改成 squash（或简写 s）。
+
+结果应该是：
+
+{{{bash
+pick abc123 最近的提交信息
+s def456 更早的提交信息
+}}}
+
+3. 合并提交信息 保存后，Git 会提示编辑合并后的提交信息。可以选择保留两个提交信息，或者只留下一个。
+4. 完成 rebase 编辑好提交信息后保存退出，Git 会把这两个提交压缩成一个新的提交。
+5. 
