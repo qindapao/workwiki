@@ -3,4 +3,85 @@
 
 [[element_boundary_judgment_logic|Element boundary judgment logic]]
 
+== 事务跟踪 ==
+
+---
+
+*多TAB标签页前需要实现的功能:*
+
+* [X] 元素类型改变。
+* [ ] 效率优化
+    * [ ] GUI 绘图效率优化。
+    * [ ] is_over_element 的效率优化，可以利用视窗。
+        * [ ] is_over_element 出现在了两个文件中，需要优化。
+    * [ ] 多边形选择中的效率极大优化。
+* [ ] BUG 修复
+    * [ ] 验证圆或者所有的元素中的文字输入 “0” 的问题。
+        * [ ]  `my $center_line = shift @lines  || '' ; =====> my $center_line = shift @lines  // '' ;`
+    * [ ] ungroup_stripes_group 中解压元素后需要删除元素的缓存
+    * [ ] mouse_drag_canvas 使用 dragging-button3，因为 dragging-button1 已经被 DnD 使用了。
+        * [ ] create_asciio_event 增加滚轮3的拖拽事件。
+* [ ] 文档优化
+    * [ ] 去掉所有的markdown文档中标题的数字标号。
+    * [ ] installation.md 中 cygwin 环境说明文档更新。
+* [ ] ASCIIO中所有的属性确保大写。
+* [ ] 中心盒子的方便插入
+    * [ ] 以当前前景元素的字符作为基础增加一个中心连接器
+* [ ] 选择模式
+    * [ ] 选择模式的文档，包括多边形选择。
+    * [ ] 鼠标移动选择模式的更好的实现。
+* [ ] 元素特性增加
+    * [ ] 为组元素增加链接属性(border connector)。
+    * [ ] if_box 和 process_box 也可以增加 border connector
+    * [ ] 两种三角形也可以增加边界链接功能。
+* [ ] 剪切板适配windows11 msys2
+* [ ] change_font 字体大小设置的步长可以设置为1.5，能保证CJK对齐。
+* [ ] undo tree
+    * [ ] undo tree 限制容量，防止内存占用过大。
+* [ ] 导出
+    * [ ] get_text_rectangle
+    * [ ] 交叉模式的样式。
+* [ ] 交叉模式的样式定制。
+* [ ] display_edit_dialog 控制显示对话框的大小。
+* [ ] zbuffer
+    * [ ] 元素中是否应该保留zbuffer的缓存？
+* [ ] 钢笔模式
+    * [ ] 钢笔模式的文档
+    * [ ] 像素元素
+        * [ ] 我们是否需要单独定义一个像素元素？
+        * [ ] 改变当前选择的元素为文本
+        * [ ] 将当前选择的元素拆分成钢笔像素
+    * [ ] 同时在钢笔模式中实现橡皮擦模式，删除 Eraser.pm
+    * [ ] 钢笔字符提示面板的定制。
+    * [ ] 自定义鼠标指针。
+    * [ ] 按键帮助的隐藏的正确实现。
+    * [ ] 可能的一些改进。[[https://github.com/nkh/P5-App-Asciio/issues/205|205]]
+
+---
+
+*优先级低的项目:*
+
+* [ ] 代码优化
+    * [ ] 元素代码中的魔鬼数字？
+---
+
+*多TAB标签页后再实现的功能:*
+
+* [ ] 多标签页功能
+    * [ ] 多标签页功能的文档。
+    * [ ] 如果文件改变那么标题增加一个状态显示。
+* [ ] 查找模式
+    * [ ] 查找模式的文档
+    * [ ] 实现替换。[[https://github.com/nkh/P5-App-Asciio/issues/220|220]]
+* [ ] 背景图像盒子设计
+    * [ ] 元素的冻结与解冻特性
+    * [ ] 剪切板适配图像盒子
+* [ ] 箭头和盒子的鼠标交互式插入是否需要优化？
+* [ ] Markup.pm 模式的一些优化，增加vimwiki模式。
+    * [ ] 重构，增加 WHATEVER box，插件系统的雏形。
+    * [ ] USE_MARKUP_MODE 不应该配置到配置中，因为直接在ASCII中操作。[[https://github.com/nkh/P5-App-Asciio/issues/236|236]]。
+* [ ] 交叉模式的算法优化。使用最新的数字位算法。去掉缓存。
+
+
+
 

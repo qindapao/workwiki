@@ -23,4 +23,42 @@ print STDERR DumpTree {
 
 用`warn`来打印，信息输出到标准错误，不会到标准输出。
 
+=== 性能测试 ===
+
+{{{perl
+use strict;
+use warnings;
+use Time::HiRes qw(gettimeofday tv_interval);
+
+# 记录开始时间
+my $t0 = [gettimeofday];
+
+# 这里放你要测试的代码
+for (1..1_000_000) {
+    my $x = $_ ** 2;
+}
+
+# 记录结束时间并计算间隔
+my $elapsed = tv_interval($t0);
+
+# 转换为毫秒并保留两位小数
+my $ms = sprintf("%.2f", $elapsed * 1000);
+
+print "Elapsed time: $ms ms\n";
+
+
+# 或者用下面的方式
+
+... ...
+my $t0 = Time::HiRes::time() ;
+
+... ...
+
+my $t1 = Time::HiRes::time() ;
+
+... ...
+
+my $t2 = Time::HiRes::time() ;
+printf STDERR "grid draw time: %0.4f sec. all gui draw time: %0.4f sec.\n", $t1 - $t0, $t2 - $t0 ;
+}}}
 
