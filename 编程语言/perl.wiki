@@ -23,6 +23,14 @@ print STDERR DumpTree {
 
 用`warn`来打印，信息输出到标准错误，不会到标准输出。
 
+如果打印整个数组记得加上斜杠。
+
+{{{perl
+use Data::Dumper;
+warn "text_lines = " . Dumper(\@text_lines) . "\n";
+}}}
+
+
 === 性能测试 ===
 
 {{{perl

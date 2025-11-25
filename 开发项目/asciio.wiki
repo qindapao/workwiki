@@ -18,6 +18,7 @@
 * [ ] BUG 修复
     * [ ] 验证圆或者所有的元素中的文字输入 “0” 的问题。
         * [ ]  `my $center_line = shift @lines  || '' ; =====> my $center_line = shift @lines  // '' ;`
+    * [ ] inline edit 边界没有对齐。
     * [ ] ungroup_stripes_group 中解压元素后需要删除元素的缓存
     * [ ] mouse_drag_canvas 使用 dragging-button3，因为 dragging-button1 已经被 DnD 使用了。
         * [ ] create_asciio_event 增加滚轮3的拖拽事件。
