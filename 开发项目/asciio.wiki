@@ -23,6 +23,7 @@
     * [ ] mouse_drag_canvas 使用 dragging-button3，因为 dragging-button1 已经被 DnD 使用了。
         * [ ] create_asciio_event 增加滚轮3的拖拽事件。
         * [ ] 是否需要增加鼠标拖拽的鼠标指针定制？
+* [ ] 当前vimwiki无法打开文件(调用windows的默认程序，.asciio已经注册，也无法双击打开。)
 * [ ] 文档优化
     * [ ] 去掉所有的markdown文档中标题的数字标号。
     * [ ] installation.md 中 cygwin 环境说明文档更新。
