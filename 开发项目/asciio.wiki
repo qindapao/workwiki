@@ -16,12 +16,13 @@
         * [ ] is_over_element 出现在了两个文件中，需要优化。
     * [ ] 多边形选择中的效率极大优化。
 * [ ] BUG 修复
-    * [ ] 验证圆或者所有的元素中的文字输入 “0” 的问题。
-        * [ ]  `my $center_line = shift @lines  || '' ; =====> my $center_line = shift @lines  // '' ;`
-    * [ ] inline edit 边界没有对齐。
+    * [X] 验证圆或者所有的元素中的文字输入 “0” 的问题。
+        * [X]  `my $center_line = shift @lines  || '' ; =====> my $center_line = shift @lines  // '' ;`
+    * [X] inline edit 边界没有对齐。
     * [ ] ungroup_stripes_group 中解压元素后需要删除元素的缓存
     * [ ] mouse_drag_canvas 使用 dragging-button3，因为 dragging-button1 已经被 DnD 使用了。
         * [ ] create_asciio_event 增加滚轮3的拖拽事件。
+        * [ ] 是否需要增加鼠标拖拽的鼠标指针定制？
 * [ ] 文档优化
     * [ ] 去掉所有的markdown文档中标题的数字标号。
     * [ ] installation.md 中 cygwin 环境说明文档更新。

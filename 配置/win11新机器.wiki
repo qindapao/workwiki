@@ -131,6 +131,9 @@ let g:terminal_cwd = 1
 let g:terminal_shell = 'D:/msys64/ucrt64_bash.bat'
 }}}
 
+`ucrt64_bash.bat` 脚本中的头部的注释注意看下，可以绑定`.asciio`后缀的文件使用`ucrt`
+内部的`perl5`的`asciio`来打开`.asciio`的文件，直接双击文件即可打开。
+
 `coc.nvim`是一个很大的插件，具体安装什么子插件，依需求而定。
 
 === 7zip ===
