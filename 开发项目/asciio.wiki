@@ -3,6 +3,8 @@
 
 [[element_boundary_judgment_logic|Element boundary judgment logic]]
 
+[[local:cross_mode.md|cross_mode]]
+
 == 事务跟踪 ==
 
 ---
