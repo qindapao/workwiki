@@ -13,7 +13,7 @@
 
 * [X] 元素类型改变。
 * [ ] 效率优化
-    * [ ] GUI 绘图效率优化。
+    * [X] GUI 绘图效率优化。
     * [ ] is_over_element 的效率优化，可以利用视窗。
         * [ ] is_over_element 出现在了两个文件中，需要优化。
     * [ ] 多边形选择中的效率极大优化。
@@ -22,10 +22,8 @@
         * [X]  `my $center_line = shift @lines  || '' ; =====> my $center_line = shift @lines  // '' ;`
     * [X] inline edit 边界没有对齐。
     * [ ] ungroup_stripes_group 中解压元素后需要删除元素的缓存
-    * [ ] mouse_drag_canvas 使用 dragging-button3，因为 dragging-button1 已经被 DnD 使用了。
-        * [ ] create_asciio_event 增加滚轮3的拖拽事件。
-        * [ ] 是否需要增加鼠标拖拽的鼠标指针定制？
-* [ ] 当前vimwiki无法打开文件(调用windows的默认程序，.asciio已经注册，也无法双击打开。)
+    * [ ] mouse_drag_canvas 当前取消前置坐标的问题定位。
+* [X] 当前vimwiki无法打开文件(调用windows的默认程序，.asciio已经注册，也无法双击打开。)
 * [ ] 文档优化
     * [ ] 去掉所有的markdown文档中标题的数字标号。
     * [ ] installation.md 中 cygwin 环境说明文档更新。
