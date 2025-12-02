@@ -70,3 +70,14 @@ my $t2 = Time::HiRes::time() ;
 printf STDERR "grid draw time: %0.4f sec. all gui draw time: %0.4f sec.\n", $t1 - $t0, $t2 - $t0 ;
 }}}
 
+== 数学计算 ==
+
+=== 四舍五入 ===
+
+{{{perl
+my $x = 3.6 ;
+my $y = sprintf("%.0f", $x) ;
+$y = int($y) ;
+}}}
+
+

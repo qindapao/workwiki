@@ -1,0 +1,87 @@
+
+= gtk3 =
+
+== 鼠标指针的默认样式 ==
+
+{{{txt
+x-cursor / GDK_X_CURSOR
+arrow / GDK_ARROW
+based-arrow-down / GDK_B ASED_ARROW_DOWN
+based-arrow-up / GDK_BASED_ARROW_UP
+boat / GDK_BOAT
+bogosity / GDK_BOGOSITY
+bottom-left-corner / GDK_BOTTOM_LEFT_CORNER
+bottom-right-corner / GDK_BOTTOM_RIGHT_CORNER
+bottom-side / GDK_BOTTOM_SIDE
+bottom-tee / GDK_BOTTOM_TEE
+box-spiral / GDK_BOX_SPIRAL
+center-ptr / GDK_CENTER_PTR
+circle / GDK_CIRCLE
+clock / GDK_CLOCK
+coffee-mug / GDK_COFFEE_MUG
+cross / GDK_ CROSS
+cross-reverse / GDK_CROSS_REVERSE
+crosshair / GDK_CROSSHAIR
+diamond-cross / GDK_DIAMOND_CROSS
+dot / GDK_DOT
+dotbox / G DK_DOTBOX
+double-arrow / GDK_DOUBLE_ARROW
+draft-large / GDK_DRAFT_LARGE
+draft-small / GDK_DRAFT_SMALL
+draped-box / GDK_DRAPED _BOX
+exchange / GDK_EXCHANGE
+fleur / GDK_FLEUR
+gobbler / GDK_GOBBLER
+gumby / GDK_GUMBY
+hand1 / GDK_HAND1
+hand2 / GDK_HAND2
+heart / GDK_HEART
+icon / GDK_ICON
+iron-cross / GDK_IRON_CROSS
+left-ptr / GDK_LEFT_PTR
+left-side / GDK_LEFT_SIDE
+left-tee / GDK_LEFT_TEE
+leftbutton / GDK_LEFTBUTTON
+ll-angle / GDK_LL_ANGLE
+lr-angle / GDK_LR_ANGLE
+man / GDK_MAN
+middlebutton / GDK_MI DDLEBUTTON
+mouse / GDK_MOUSE
+pencil / GDK_PENCIL
+pirate / GDK_PIRATE, plus / GDK_PLUS
+question-arrow / GDK_QUESTION_ARROW
+ri ght-ptr / GDK_RIGHT_PTR
+right-side / GDK_RIGHT_SIDE
+right-tee / GDK_RIGHT_TEE
+rightbutton / GDK_RIGHTBUTTON
+rtl-logo / GDK_RT L_LOGO
+sailboat / GDK_SAILBOAT
+sb-down-arrow / GDK_SB_DOWN_ARROW
+sb-h-double-arrow / GDK_SB_H_DOUBLE_ARROW
+sb-left-arrow / GD K_SB_LEFT_ARROW
+sb-right-arrow / GDK_SB_RIGHT_ARROW
+sb-up-arrow / GDK_SB_UP_ARROW
+sb-v-double-arrow / GDK_SB_V_DOUBLE_ARROW
+s-huttle / GDK_SHUTTLE
+sizing / GDK_SIZING
+spider / GDK_SPIDER
+spraycan / GDK_SPRAYCAN
+star / GDK_STAR
+target / GDK_TARGET
+tc ross / GDK_TCROSS
+top-left-arrow / GDK_TOP_LEFT_ARROW
+top-left-corner / GDK_TOP_LEFT_CORNER
+top-right-corner / GDK_TOP_RIGHT_C ORNER
+top-side / GDK_TOP_SIDE
+top-tee / GDK_TOP_TEE
+trek / GDK_TREK
+ul-angle / GDK_UL_ANGLE
+umbrella / GDK_UMBRELLA
+ur-angl e / GDK_UR_ANGLE
+watch / GDK_WATCH
+xterm / GDK_XTERM
+last-cursor / GDK_LAST_CURSOR
+blank-cursor / GDK_BLANK_CURSOR
+cursor-is-pixmap / GDK_CURSOR_IS_PIXMAP
+}}}
+
