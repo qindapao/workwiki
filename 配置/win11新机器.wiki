@@ -147,6 +147,15 @@ let g:terminal_shell = 'D:/msys64/ucrt64_bash.bat'
 直接从百度网盘中的备份的拿出来解压后使用 *ucrt64* 终端即可。
 在`msys64_备份`目录中。
 
+安装完成后可以手动更新下bash的版本，让我们可是使用最新版本的bash。
+
+{{{bash
+# 更新系统和包数据库
+pacman -Syu
+# 安装/更新 bash
+pacman -S bash
+}}}
+
 === git ===
 
 [[https://git-scm.com/install/windows|git]]
