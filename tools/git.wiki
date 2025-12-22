@@ -105,6 +105,21 @@ git branch -vv
 git remote add upstream https://github.com/nkh/P5-App-Asciio
 }}}
 
+=== 强制让分支同步到远程的状态 ===
+
+1. 同步远程最新的状态
+
+{{{bash
+git fetch origin
+}}}
+
+2. 强制让本地分支对齐远程分支
+
+{{{bash
+git reset --hard origin/add_connector
+}}}
+
+
 == 提交管理 ==
 
 === 压缩提交 ===
