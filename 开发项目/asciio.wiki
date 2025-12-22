@@ -112,5 +112,47 @@
 
 
 
+== 边框绘制函数和选中效果函数备份 ==
 
+{{{perl
+sub draw_element_freeze_border
+{
+my ($self, $gc , $element, $character_width, $character_height) = @_ ;
 
+return unless $element->is_frozen() ;
+
+my $border_color = $self->get_color($self->{IGNORE_FROZEN_ELEMENTS} ? 'ignored_frozen_border' : 'frozen_elements_border') ;
+
+$gc->set_source_rgb($border_color->@*) ;
+$gc->set_line_width(2) ;
+$gc->set_dash(0, 2, 2) ;
+
+$gc->rectangle
+	(
+	$element->{X}      * $character_width,
+	$element->{Y}      * $character_height,
+	$element->{WIDTH}  * $character_width,
+	$element->{HEIGHT} * $character_height
+	) ;
+$gc->stroke() ;
+$gc->set_dash(0) ;
+}
+}}}
+
+{{{perl
+if ($element->{SELECTED})
+	{
+	my $alpha = 0.15 ;
+	my ($background_color, undef) = $self->get_element_colors($element) ;
+	
+	$gc->set_source_rgba(@{$background_color}, $alpha) ;
+	$gc->rectangle
+		(
+		$element->{X} * $character_width,
+		$element->{Y} * $character_height,
+		$element->{WIDTH}  * $character_width,
+		$element->{HEIGHT} * $character_height
+		) ;
+	$gc->fill() ;
+	}
+}}}
