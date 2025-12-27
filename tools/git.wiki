@@ -175,3 +175,63 @@ git reset --hard HEAD~1
 
 `reset --hard`会丢失没有保存的修改，在操作前最好先`git stash`保存下。
 
+== 变基 ==
+
+=== 冲突解决 ===
+
+1. 开启 `Git` 的三方冲突信息（让 `Fugitive` 能三方合并）
+
+{{{bash
+git config --global merge.conflictStyle zdiff3
+}}}
+
+2. 设置 Beyond Compare 为 Git 的 mergetool
+
+{{{bash
+git config --global merge.tool bc
+git config --global mergetool.bc.path "D:/programes/BCompare/BComp.exe"
+git config --global mergetool.prompt false
+}}}
+
+3. rebase 冲突时：
+
+{{{bash
+git mergetool
+}}}
+Beyond Compare 自动打开三方合并。
+
+4. 解决完冲突后回到 Vim 继续 rebase
+
+{{{bash
+git rebase --continue
+}}}
+
+`Beyond Compare` *合并窗口布局说明:*
+
+{{{txt
+
+   .------------.------------.-------------------.
+   |            |            |                   |
+   |  LOCAL     |   BASE     |   REMOTE          |  三个输入文件
+   '------------'------------'-------------------'
+
+   .---------------------------------------------.
+   |             MERGED                          |  输出文件 (这个是我们要编辑的）
+   '---------------------------------------------'
+
+    LOCAL:  这是我们的版本
+    BASE:   这是共同的祖先
+    REMOTE: 这是对方的版本
+    MERGED: 最终合并结果(这是我们要编辑的文件)
+
+    冲突区域的颜色说明:
+        红色：冲突
+        蓝色：不同但不冲突
+        灰色：相同
+    在冲突区域旁边会有按钮：
+        ← 取 LOCAL（你的版本）
+        → 取 REMOTE（对方版本）
+        ⇆ 合并两边
+        ✎ 手动编辑  
+}}}
+
