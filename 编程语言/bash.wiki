@@ -50,3 +50,204 @@ abc-123
 abc
 }}}
 
+
+== mkfifo ==
+
+=== 消息队列 ===
+
+{{{bash
+mkfifo q
+
+# 生产者
+echo "hello" > q
+
+# 消费者
+read msg < q
+echo "got: $msg"
+}}}
+
+=== lock ===
+
+{{{bash
+mkfifo lock
+
+# 获取锁（阻塞）
+exec 3<>lock
+
+# 释放锁
+exec 3>&-
+
+lock_acquire() {
+    exec 3<>/tmp/mylock
+}
+
+lock_release() {
+    exec 3>&-
+}
+
+}}}
+
+FIFO 的锁是基于 FD 的：
+脚本退出时，所有 FD 自动关闭
+锁自动释放
+
+这比文件锁还安全。
+
+==== 可重入锁 ====
+
+{{{bash
+lock_acquire() {
+    if [[ ${LOCK_COUNT:-0} -gt 0 ]]; then
+        ((LOCK_COUNT++))
+        return
+    fi
+
+    exec 3<>/tmp/mylock
+    LOCK_COUNT=1
+}
+
+lock_release() {
+    ((--LOCK_COUNT == 0)) && exec 3>&-
+}
+}}}
+
+==== 多进程任务队列+锁 ====
+
+- FIFO 作为任务队列
+- FIFO 作为 worker 池
+- FIFO 作为锁
+
+{{{bash
+mkfifo queue
+mkfifo pool
+
+# 初始化 worker 令牌
+for i in {1..8}; do echo token > pool; done
+
+# 生产者
+for job in {1..100}; do
+    echo "$job" > queue
+done
+
+# 消费者
+while read job < queue; do
+    read token < pool
+    {
+        echo "processing $job"
+        sleep 1
+        echo token > pool
+    } &
+done
+
+wait
+}}}
+
+=== 并发 ===
+
+{{{bash
+mkfifo pool
+exec 3<>pool
+
+# 初始化 10 个令牌
+for i in {1..10}; do echo >&3; done
+
+for job in {1..100}; do
+    read -u 3   # 获取令牌（阻塞）
+    {
+        echo "job $job"
+        sleep 1
+        echo >&3  # 归还令牌
+    } &
+done
+
+wait
+}}}
+
+=== 多脚本共享数据流 ===
+
+脚本A:
+
+{{{bash
+echo "data" > /tmp/pipe
+}}}
+
+脚本B:
+
+{{{bash
+while read line; do
+    echo "got: $line"
+done < /tmp/pipe
+}}}
+
+=== mkfifo 可以让 Bash 实现“事件驱动” ===
+
+可以让一个脚本等待另一个脚本的事件:
+
+{{{bash
+mkfifo event
+
+# 监听者
+while read e < event; do
+    echo "event: $e"
+done
+}}}
+
+另一个脚本:
+
+{{{bash
+echo "reload" > event
+}}}
+
+=== mkfifo 是 Bash 里唯一能实现“双向通信”的机制之一 ===
+
+普通管道是单向的
+可以创建两个 FIFO:
+
+{{{bash
+client → server
+server → client
+}}}
+
+=== 进程持久通信 ===
+
+{{{bash
+cd /tmp
+
+rm -f fifo_in fifo_out
+mkfifo fifo_in fifo_out || echo "mkfifo failed"
+
+ls -l fifo_in fifo_out
+
+# 1. 启动 awk（先打开读端）
+awk '
+{
+    print "got:", $0
+    fflush()
+}
+' < fifo_in > fifo_out &
+awk_pid=$!
+
+# 2. 再打开写端和读端
+exec 3>fifo_in
+exec 4<fifo_out
+
+# 3. 通信
+echo "hello" >&3
+read line <&4
+echo "awk returned: $line"
+
+}}}
+
+=== 协程 ===
+
+它不能被多进程共享！
+
+{{{bash
+
+coproc BC { bc -l; }
+
+echo "(18.233+223.23)/122.22" >&"${BC[1]}"
+read ans <&"${BC[0]}"
+echo "result = $ans"
+}}}
+
