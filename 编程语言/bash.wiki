@@ -251,3 +251,8 @@ read ans <&"${BC[0]}"
 echo "result = $ans"
 }}}
 
+== Bash常用命令 ==
+
+https://github.com/lilinji/DevopsBooklet/blob/master/Bash%E6%89%8B%E5%86%8C.md
+
+
