@@ -256,3 +256,7 @@ echo "result = $ans"
 https://github.com/lilinji/DevopsBooklet/blob/master/Bash%E6%89%8B%E5%86%8C.md
 
 
+== 资料和博客 ==
+
+https://bash-hackers.gabe565.com/syntax/arrays/
+
